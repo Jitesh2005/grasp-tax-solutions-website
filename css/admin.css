@@ -1,0 +1,78 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f8fc;
+    color: #003366;
+}
+
+.navbar {
+    background-color: #004080;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.navbar nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 1rem;
+    font-weight: 600;
+}
+
+.navbar nav a:hover {
+    color: #ffd700;
+}
+
+.admin-container {
+    max-width: 1100px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.admin-container h2 {
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #004080;
+}
+
+.file-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.file-table th,
+.file-table td {
+    padding: 0.8rem 1rem;
+    border: 1px solid #c9d6e3;
+    text-align: left;
+}
+
+.file-table th {
+    background-color: #e7f0ff;
+    color: #004080;
+}
+
+.download-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.download-btn:hover {
+    background-color: #0056b3;
+}
