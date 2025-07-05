@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel | Grasp Tax Guard</title>
+    <link rel="stylesheet" href="/css/admin.css" />
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">Admin Panel - Grasp Tax Guard</div>
+        <nav>
+            <a href="/dashboard">User View</a>
+            <a href="/logout">Logout</a>
+        </nav>
+    </header>
+
+    <main class="admin-container">
+        <h2>All Uploaded Files</h2>
+
+        <table class="file-table">
+            <thead>
+                <tr>
+                    <th>File Name</th>
+                    <th>User</th>
+                    <th>Upload Time</th>
+                    <th>Download</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rendered dynamically from server -->
+                <!-- Example:
+        <tr>
+          <td>report.pdf</td>
+          <td>Jitesh</td>
+          <td>2025-06-08 14:32</td>
+          <td><a href="/download/4" class="download-btn">Download</a></td>
+        </tr>
+        -->
+            </tbody>
+        </table>
+    </main>
+</body>
+
+</html>
