@@ -5,11 +5,11 @@ const db = require('../db');
 const path = require('path');
 
 router.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, '../views/login.html'));
+  res.sendFile(path.join(__dirname, '../login.html'));
 });
 
 router.get('/register', (req, res) => {
-  res.sendFile(path.join(__dirname, '../views/register.html'));
+  res.sendFile(path.join(__dirname, '../register.html'));
 });
 
 router.post('/register', async (req, res) => {
@@ -60,7 +60,7 @@ router.post('/login', (req, res) => {
 
 router.get('/dashboard', (req, res) => {
   if (!req.session.user) return res.redirect('/login');
-  res.sendFile(path.join(__dirname, '../views/dashboard.html'));
+  res.sendFile(path.join(__dirname, '../dashboard.html'));
 });
 
 router.get('/logout', (req, res) => {
