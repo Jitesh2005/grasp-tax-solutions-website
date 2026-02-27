@@ -109,11 +109,10 @@ const { requireAdmin } = require('../middleware/authMiddleware');
 
 // Admin Dashboard
 router.get('/admin', requireAdmin, (req, res) => {
-  res.sendFile(path.join(__dirname, '../views/admin.html'));
   db.query(
-    `SELECT uploads.id, uploads.filename, users.name AS owner, uploads.uploaded_at 
-     FROM uploads 
-     JOIN users ON uploads.user_id = users.id 
+    `SELECT uploads.id, uploads.filename, users.name AS owner, uploads.uploaded_at
+     FROM uploads
+     JOIN users ON uploads.user_id = users.id
      ORDER BY uploads.uploaded_at DESC`,
     (err, files) => {
       if (err) {
@@ -122,18 +121,28 @@ router.get('/admin', requireAdmin, (req, res) => {
       }
 
       let html = `
-        <h2>Admin File Dashboard</h2>
-        <table border="1" cellpadding="8" cellspacing="0">
-          <tr><th>File</th><th>User</th><th>Uploaded At</th><th>Download</th></tr>
-          ${files.map(f => `
-            <tr>
-              <td>${f.filename}</td>
-              <td>${f.owner}</td>
-              <td>${new Date(f.uploaded_at).toLocaleString()}</td>
-              <td><a href="/download/${f.id}">Download</a></td>
-            </tr>
-          `).join('')}
-        </table>
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <title>Admin Dashboard</title>
+          <link rel="stylesheet" href="/css/admin.css">
+        </head>
+        <body>
+          <h2>Admin File Dashboard</h2>
+          <table border="1" cellpadding="8" cellspacing="0">
+            <tr><th>File</th><th>User</th><th>Uploaded At</th><th>Download</th></tr>
+            ${files.map(f => `
+              <tr>
+                <td>${f.filename}</td>
+                <td>${f.owner}</td>
+                <td>${new Date(f.uploaded_at).toLocaleString()}</td>
+                <td><a href="/download/${f.id}">Download</a></td>
+              </tr>
+            `).join('')}
+          </table>
+        </body>
+        </html>
       `;
       res.send(html);
     }
